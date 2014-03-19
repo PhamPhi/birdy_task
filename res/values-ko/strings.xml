@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BIRDY 작업</string>
+    <string name="button_submit_content">제출</string>
+</resources>

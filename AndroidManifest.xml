@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.frm.bdTask"
-          android:versionCode="1"
-          android:versionName="1.0">
+          android:versionCode="1403191035"
+          android:versionName="1403191035.1.0.DEV">
     <uses-sdk android:minSdkVersion="19"/>
-    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+    <supports-screens android:smallScreens="false" android:anyDensity="true"
+                      android:largeScreens="false" android:normalScreens="true"
+                      android:xlargeScreens="false"
+                      android:requiresSmallestWidthDp="160"/>
+    <application android:label="@string/app_name"
+                 android:icon="@drawable/ic_launcher">
         <activity android:name="MainBirdyTaskActivity"
                   android:label="@string/app_name">
             <intent-filter>

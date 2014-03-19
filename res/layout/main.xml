@@ -2,12 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
               android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-        >
-    <TextView
-            android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+    <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World, MainBirdyTaskActivity"
-            />
+            android:text="@string/button_submit_content"
+            android:id="@+id/button" android:layout_gravity="center_horizontal"/>
 </LinearLayout>
 
