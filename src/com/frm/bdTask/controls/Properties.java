@@ -5,4 +5,6 @@ package com.frm.bdTask.controls;
  * @since 3/19/2014.
  */
 public class Properties {
+    public static final String PREFIX = "[BirdyTask].";
+
 }
