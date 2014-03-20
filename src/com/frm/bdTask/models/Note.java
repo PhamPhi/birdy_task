@@ -14,7 +14,8 @@ public class Note {
     private String mTitle;
     private String mContent;
     private int mStatus;
-
+    private int mColor;
+    
     private Date mCreatedAt;
     private Date mUpdatedAt;
 
@@ -22,34 +23,38 @@ public class Note {
 
     }
 
-    public Note(int mId, String mTitle, String mContent, int mMemoKind) {
+    public Note(int mId, String mTitle, String mContent, int color) {
         this.mId = mId;
         this.mTitle = mTitle;
         this.mContent = mContent;
+        this.mColor = color;
     }
 
-    public Note(int mId, String mTitle, String mContent, int mMemoKind, int mStatus) {
+    public Note(int mId, String mTitle, String mContent, int mStatus, int inColor) {
         this.mId = mId;
         this.mTitle = mTitle;
         this.mContent = mContent;
         this.mStatus = mStatus;
+        this.mColor = inColor;
     }
 
-    public Note(int mId, String mTitle, String mContent, int mMemoKind, int mStatus, Date mCreatedAt) {
+    public Note(int mId, String mTitle, String mContent, int mStatus, int color, Date mCreatedAt) {
         this.mId = mId;
         this.mTitle = mTitle;
         this.mContent = mContent;
         this.mStatus = mStatus;
+        this.mColor = color;
         this.mCreatedAt = mCreatedAt;
 
     }
 
-    public Note(int mId, String mTitle, String mContent, int mMemoKind, int mStatus,
+    public Note(int mId, String mTitle, String mContent, int mStatus, int color,
                     Date mCreatedAt, Date mUpdatedAt) {
         this.mId = mId;
         this.mTitle = mTitle;
         this.mContent = mContent;
         this.mStatus = mStatus;
+        this.mColor = color;
         this.mCreatedAt = mCreatedAt;
         this.mUpdatedAt = mUpdatedAt;
 
@@ -77,6 +82,14 @@ public class Note {
 
     public void setContent(String mContent) {
         this.mContent = mContent;
+    }
+
+    public int getColor() {
+        return mColor;
+    }
+
+    public void setColor(int mColor) {
+        this.mColor = mColor;
     }
 
     public int getStatus() {
