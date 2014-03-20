@@ -12,6 +12,7 @@ public class NoteTag {
     private String mTagName;
     private String mContent;
     private int mColorKind;
+
     private int mStatus;
     private Date mTaggedDate;
 

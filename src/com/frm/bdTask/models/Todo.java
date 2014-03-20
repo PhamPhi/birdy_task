@@ -15,7 +15,8 @@ public class Todo{
     private String mTitle;
     private String mContent;
     private int mStatus;
-    
+    private int mColorKind;
+
     private Date mCreatedAt;
     private Date mUpdatedAt;
     private List<TodoItem> todoItems = new ArrayList<TodoItem>();
