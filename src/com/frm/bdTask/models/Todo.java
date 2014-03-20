@@ -84,6 +84,14 @@ public class Todo{
         this.mContent = mContent;
     }
 
+    public int getColorKind() {
+        return mColorKind;
+    }
+
+    public void setColorKind(int mColorKind) {
+        this.mColorKind = mColorKind;
+    }
+
     public int getStatus() {
         return mStatus;
     }
