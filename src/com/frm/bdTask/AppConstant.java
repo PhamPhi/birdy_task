@@ -5,4 +5,5 @@ package com.frm.bdTask;
  * @since 3/19/2014.
  */
 public class AppConstant {
+
 }
