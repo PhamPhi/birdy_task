@@ -1,5 +1,8 @@
 package com.frm.bdTask.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
 /**
@@ -7,7 +10,7 @@ import java.util.Date;
  * @since: 3/19/2014.
  * @version: 2014.03.19.
  */
-public class NoteTag {
+public class NoteTag implements Parcelable {
     private int mId;
     private String mTagName;
     private String mContent;
@@ -48,6 +51,17 @@ public class NoteTag {
         this.mStatus = mStatus;
         this.mTaggedDate = mTaggedDate;
     }
+
+    public NoteTag(Parcel in){
+        this.mId = in.readInt();
+        this.mTagName = in.readString();
+        this.mContent = in.readString();
+        this.mColorKind = in.readInt();
+
+        this.mStatus = in.readInt();
+        this.mTaggedDate = (Date) in.readSerializable();
+    }
+
 
     public int getmId() {
         return mId;
@@ -96,4 +110,33 @@ public class NoteTag {
     public void setmTaggedDate(Date mTaggedDate) {
         this.mTaggedDate = mTaggedDate;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.mId);
+        dest.writeString(this.mTagName);
+        dest.writeString(this.mContent);
+        dest.writeInt(this.mColorKind);
+
+        dest.writeInt(this.mStatus);
+        dest.writeSerializable(mTaggedDate);
+    }
+
+    public static final Creator<NoteTag> CREATOR = new Creator<NoteTag>() {
+        @Override
+        public NoteTag createFromParcel(Parcel source) {
+            return new NoteTag(source);
+        }
+
+        @Override
+        public NoteTag[] newArray(int size) {
+            return new NoteTag[size];
+        }
+    };
 }
