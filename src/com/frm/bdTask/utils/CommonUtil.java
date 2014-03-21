@@ -134,4 +134,22 @@ public class CommonUtil {
 
     }
 
+    public static  float convertPixelsToDp(Context context, float px){
+        DisplayMetrics metrics=  context.getResources().getDisplayMetrics();
+        float dp = px / (metrics.densityDpi / 160f);
+        return dp;
+    }
+
+    public static int convertDpToPixelInt(Context context, float dp){
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        int px = (int)(dp * (metrics.densityDpi / 160f));
+        return px;
+    }
+
+    public static float convertDpToPixel(Context context, float dp){
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        float px = (float) ( dp * (metrics.densityDpi / 160f));
+        return  px;
+    }
+
 }
