@@ -3,10 +3,8 @@ package com.frm.bdTask.models;
 import android.content.Context;
 
 import android.database.Cursor;
-import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.nfc.Tag;
 import android.util.Log;
 import com.frm.bdTask.BirdyApp;
 import com.frm.bdTask.controls.Properties;

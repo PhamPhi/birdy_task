@@ -1,15 +1,16 @@
 package com.frm.bdTask.models;
 
-import java.util.ArrayList;
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author: Larry Pham.
  * @since: 3/19/2014.
  * @version: 2014.03.19.
  */
-public class Note {
+public class Note implements Parcelable {
     private int mId;
     private String mTitle;
     private String mContent;
@@ -60,6 +61,17 @@ public class Note {
 
     }
 
+    public Note(Parcel in){
+        this.mId = in.readInt();
+        this.mTitle = in.readString();
+        this.mContent = in.readString();
+        this.mStatus = in.readInt();
+        this.mColor = in.readInt();
+
+        this.mCreatedAt = (Date) in.readSerializable();
+        this.mUpdatedAt = (Date) in.readSerializable();
+    }
+    /** GETTERS AND SETTERS **/
     public int getId() {
         return mId;
     }
@@ -115,5 +127,38 @@ public class Note {
     public void setUpdatedAt(Date mUpdatedAt) {
         this.mUpdatedAt = mUpdatedAt;
     }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+    /** Assining this object as the parcelable object .*/
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(mId);
+        dest.writeString(mTitle);
+        dest.writeString(mContent);
+
+        dest.writeInt(mStatus);
+        dest.writeInt(mColor);
+
+        dest.writeSerializable(mCreatedAt);
+        dest.writeSerializable(mUpdatedAt);
+    }
+
+    public static final Creator<Note> CREATOR = new Creator<Note>() {
+        @Override
+        public Note createFromParcel(Parcel source) {
+            return new Note(source);
+        }
+
+        @Override
+        public Note[] newArray(int size) {
+            return new Note[size];
+        }
+    };
+
 
 }

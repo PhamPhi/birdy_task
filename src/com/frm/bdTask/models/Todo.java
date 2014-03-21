@@ -1,5 +1,8 @@
 package com.frm.bdTask.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -9,8 +12,8 @@ import java.util.List;
  * @since: 3/19/2014.
  * @version: 2014.03.19.
  */
-public class Todo{
-    
+public class Todo implements Parcelable{
+
     private int mId;
     private String mTitle;
     private String mContent;
@@ -46,8 +49,8 @@ public class Todo{
         this.mContent = mContent;
         this.mStatus = mStatus;
         this.mCreatedAt = mCreatedAt;
-        this.mUpdatedAt = mUpdatedAt; 
-        todoItems = new ArrayList<TodoItem>(); // Intializing the array of TodoItem. 
+        this.mUpdatedAt = mUpdatedAt;
+        todoItems = new ArrayList<TodoItem>(); // Intializing the array of TodoItem.
     }
 
     public Todo(int mId, String mTitle, String mContent, int mStatus, Date mCreatedAt, Date mUpdatedAt, List<TodoItem> todoItems) {
@@ -60,6 +63,17 @@ public class Todo{
         this.todoItems = todoItems;
     }
 
+    public Todo(Parcel in){
+        this.mId = in.readInt();
+        this.mTitle = in.readString();
+        this.mContent = in.readString();
+        this.mStatus = in.readInt();
+        this.mColorKind = in.readInt();
+
+        this.mCreatedAt = (Date) in.readSerializable();
+        this.mUpdatedAt = (Date) in.readSerializable();
+        todoItems = new ArrayList<TodoItem>();
+    }
     public int getId() {
         return mId;
     }
@@ -123,4 +137,33 @@ public class Todo{
     public void setTodoItems(List<TodoItem> todoItems) {
         this.todoItems = todoItems;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(mId);
+        dest.writeString(mTitle);
+        dest.writeString(mContent);
+        dest.writeInt(mStatus);
+
+        dest.writeInt(mColorKind);
+        dest.writeSerializable(mCreatedAt);
+        dest.writeSerializable(mUpdatedAt);
+    }
+
+    public static final Creator<Todo> CREATOR = new Creator<Todo>() {
+        @Override
+        public Todo createFromParcel(Parcel source) {
+            return new Todo(source);
+        }
+
+        @Override
+        public Todo[] newArray(int size) {
+            return new Todo[size];
+        }
+    };
 }
