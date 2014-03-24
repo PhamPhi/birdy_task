@@ -2,4 +2,11 @@
 <resources>
     <string name="app_name">BirdyTask</string>
     <string name="button_submit_content">Submit</string>
+
+
+    <!-- Navigation Items -->
+    <string name="menu_drawer_item_list_notes">Notes</string>
+    <string name="menu_drawer_item_list_todos">Todos</string>
+    <string name="menu_drawer_item_list_archived">Archived</string>
+    <string name="menu_drawer_item_list_history">History</string>
 </resources>
