@@ -2,6 +2,7 @@ package com.frm.bdTask.utils;
 
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
@@ -150,6 +151,36 @@ public class CommonUtil {
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         float px = (float) ( dp * (metrics.densityDpi / 160f));
         return  px;
+    }
+
+    /**
+     * Determining the Screen's Size is xLarge and Landscape or not..
+     * @param context The Application Context.
+     * @return Boolean Type.
+     */
+    public static boolean isXLargeAndLandscape(Context context){
+        return isXLarge(context) && (context.getResources().getConfiguration().orientation
+                                                            == Configuration.ORIENTATION_LANDSCAPE);
+    }
+
+    /**
+     * Determining the current screen's size is xlarge or not..
+     * @param context The Application Context.
+     * @return Boolean Type.
+     */
+    public static boolean isXLarge(Context context){
+        return ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) ==
+            Configuration.SCREENLAYOUT_SIZE_XLARGE);
+    }
+
+    /**
+     * Determining the current screen's size related to Large, XLarge or not.
+     * @param context The Application Context.
+     * @return boolean Type
+     */
+    public static boolean isLargeOrXLarge(Context context){
+       int mask = (context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK);
+       return (mask == Configuration.SCREENLAYOUT_SIZE_XLARGE) ||( mask == Configuration.SCREENLAYOUT_SIZE_LARGE);
     }
 
 }
