@@ -14,6 +14,4 @@ public class AppConstant {
     public static final int NOTE_COLOR_YELLOW           = 105;
     public static final int NOTE_COLOR_WHITE            = 100;
     public static final int NOTE_COLOR_GRAY             = 106;
-
-
 }

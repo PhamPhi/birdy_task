@@ -6,4 +6,5 @@ package com.frm.bdTask.controls;
  * @version: 2014.03.24.
  */
 public class ListArchivedActivityControl {
+
 }
