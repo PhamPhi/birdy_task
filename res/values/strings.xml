@@ -9,4 +9,7 @@
     <string name="menu_drawer_item_list_todos">Todos</string>
     <string name="menu_drawer_item_list_archived">Archived</string>
     <string name="menu_drawer_item_list_history">History</string>
+    <string name="list_notes_test_sample">Notes</string>
+    <string name="list_todo_test_sample">Todos</string>
+    <string name="list_archived_test_sample">Archived</string>
 </resources>
