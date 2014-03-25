@@ -12,158 +12,163 @@ import java.util.List;
  * @since: 3/19/2014.
  * @version: 2014.03.19.
  */
-public class Todo implements Parcelable{
+public class Todo implements Parcelable {
 
-    private int mId;
-    private String mTitle;
-    private String mContent;
-    private int mStatus;
-    private int mColorKind;
+	private int mId;
+	private String mTitle;
+	private String mContent;
+	private int mStatus;
+	private int mColorKind;
 
-    private Date mCreatedAt;
-    private Date mUpdatedAt;
-    private List<TodoItem> todoItems = new ArrayList<TodoItem>();
+	private Date mCreatedAt;
+	private Date mUpdatedAt;
+	private List<TodoItem> todoItems = new ArrayList<TodoItem>();
 
-    public Todo() {
+	public Todo() {
 
-    }
+	}
 
-    public Todo(int mId, String mTitle, String mContent, int mStatus, Date mCreatedAt) {
-        this.mId = mId;
-        this.mTitle = mTitle;
-        this.mContent = mContent;
-        this.mStatus = mStatus;
-        this.mCreatedAt = mCreatedAt;
-    }
+	public Todo(int mId, String mTitle, String mContent, int mStatus,
+			Date mCreatedAt) {
+		this.mId = mId;
+		this.mTitle = mTitle;
+		this.mContent = mContent;
+		this.mStatus = mStatus;
+		this.mCreatedAt = mCreatedAt;
+	}
 
-    public Todo(int mId, String mTitle, String mContent, int mStatus) {
-        this.mId = mId;
-        this.mTitle = mTitle;
-        this.mContent = mContent;
-        this.mStatus = mStatus;
-    }
+	public Todo(int mId, String mTitle, String mContent, int mStatus) {
+		this.mId = mId;
+		this.mTitle = mTitle;
+		this.mContent = mContent;
+		this.mStatus = mStatus;
+	}
 
-    public Todo(int mId, String mTitle, String mContent, int mStatus, Date mCreatedAt, Date mUpdatedAt) {
-        this.mId = mId;
-        this.mTitle = mTitle;
-        this.mContent = mContent;
-        this.mStatus = mStatus;
-        this.mCreatedAt = mCreatedAt;
-        this.mUpdatedAt = mUpdatedAt;
-        todoItems = new ArrayList<TodoItem>(); // Intializing the array of TodoItem.
-    }
+	public Todo(int mId, String mTitle, String mContent, int mStatus,
+			Date mCreatedAt, Date mUpdatedAt) {
+		this.mId = mId;
+		this.mTitle = mTitle;
+		this.mContent = mContent;
+		this.mStatus = mStatus;
+		this.mCreatedAt = mCreatedAt;
+		this.mUpdatedAt = mUpdatedAt;
+		todoItems = new ArrayList<TodoItem>(); // Intializing the array of
+												// TodoItem.
+	}
 
-    public Todo(int mId, String mTitle, String mContent, int mStatus, Date mCreatedAt, Date mUpdatedAt, List<TodoItem> todoItems) {
-        this.mId = mId;
-        this.mTitle = mTitle;
-        this.mContent = mContent;
-        this.mStatus = mStatus;
-        this.mCreatedAt = mCreatedAt;
-        this.mUpdatedAt = mUpdatedAt;
-        this.todoItems = todoItems;
-    }
+	public Todo(int mId, String mTitle, String mContent, int mStatus,
+			Date mCreatedAt, Date mUpdatedAt, List<TodoItem> todoItems) {
+		this.mId = mId;
+		this.mTitle = mTitle;
+		this.mContent = mContent;
+		this.mStatus = mStatus;
+		this.mCreatedAt = mCreatedAt;
+		this.mUpdatedAt = mUpdatedAt;
+		this.todoItems = todoItems;
+	}
 
-    public Todo(Parcel in){
-        this.mId = in.readInt();
-        this.mTitle = in.readString();
-        this.mContent = in.readString();
-        this.mStatus = in.readInt();
-        this.mColorKind = in.readInt();
+	public Todo(Parcel in) {
+		this.mId = in.readInt();
+		this.mTitle = in.readString();
+		this.mContent = in.readString();
+		this.mStatus = in.readInt();
+		this.mColorKind = in.readInt();
 
-        this.mCreatedAt = (Date) in.readSerializable();
-        this.mUpdatedAt = (Date) in.readSerializable();
-        todoItems = new ArrayList<TodoItem>();
-    }
-    public int getId() {
-        return mId;
-    }
+		this.mCreatedAt = (Date) in.readSerializable();
+		this.mUpdatedAt = (Date) in.readSerializable();
+		todoItems = new ArrayList<TodoItem>();
+	}
 
-    public void setId(int mId) {
-        this.mId = mId;
-    }
+	public int getId() {
+		return mId;
+	}
 
-    public String getTitle() {
-        return mTitle;
-    }
+	public void setId(int mId) {
+		this.mId = mId;
+	}
 
-    public void setTitle(String mTitle) {
-        this.mTitle = mTitle;
-    }
+	public String getTitle() {
+		return mTitle;
+	}
 
-    public String getContent() {
-        return mContent;
-    }
+	public void setTitle(String mTitle) {
+		this.mTitle = mTitle;
+	}
 
-    public void setContent(String mContent) {
-        this.mContent = mContent;
-    }
+	public String getContent() {
+		return mContent;
+	}
 
-    public int getColorKind() {
-        return mColorKind;
-    }
+	public void setContent(String mContent) {
+		this.mContent = mContent;
+	}
 
-    public void setColorKind(int mColorKind) {
-        this.mColorKind = mColorKind;
-    }
+	public int getColorKind() {
+		return mColorKind;
+	}
 
-    public int getStatus() {
-        return mStatus;
-    }
+	public void setColorKind(int mColorKind) {
+		this.mColorKind = mColorKind;
+	}
 
-    public void setStatus(int mStatus) {
-        this.mStatus = mStatus;
-    }
+	public int getStatus() {
+		return mStatus;
+	}
 
-    public Date getCreatedAt() {
-        return mCreatedAt;
-    }
+	public void setStatus(int mStatus) {
+		this.mStatus = mStatus;
+	}
 
-    public void setCreatedAt(Date mCreatedAt) {
-        this.mCreatedAt = mCreatedAt;
-    }
+	public Date getCreatedAt() {
+		return mCreatedAt;
+	}
 
-    public Date getUpdatedAt() {
-        return mUpdatedAt;
-    }
+	public void setCreatedAt(Date mCreatedAt) {
+		this.mCreatedAt = mCreatedAt;
+	}
 
-    public void setUpdatedAt(Date mUpdatedAt) {
-        this.mUpdatedAt = mUpdatedAt;
-    }
+	public Date getUpdatedAt() {
+		return mUpdatedAt;
+	}
 
-    public List<TodoItem> getTodoItems() {
-        return todoItems;
-    }
+	public void setUpdatedAt(Date mUpdatedAt) {
+		this.mUpdatedAt = mUpdatedAt;
+	}
 
-    public void setTodoItems(List<TodoItem> todoItems) {
-        this.todoItems = todoItems;
-    }
+	public List<TodoItem> getTodoItems() {
+		return todoItems;
+	}
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
+	public void setTodoItems(List<TodoItem> todoItems) {
+		this.todoItems = todoItems;
+	}
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(mId);
-        dest.writeString(mTitle);
-        dest.writeString(mContent);
-        dest.writeInt(mStatus);
+	@Override
+	public int describeContents() {
+		return 0;
+	}
 
-        dest.writeInt(mColorKind);
-        dest.writeSerializable(mCreatedAt);
-        dest.writeSerializable(mUpdatedAt);
-    }
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeInt(mId);
+		dest.writeString(mTitle);
+		dest.writeString(mContent);
+		dest.writeInt(mStatus);
 
-    public static final Creator<Todo> CREATOR = new Creator<Todo>() {
-        @Override
-        public Todo createFromParcel(Parcel source) {
-            return new Todo(source);
-        }
+		dest.writeInt(mColorKind);
+		dest.writeSerializable(mCreatedAt);
+		dest.writeSerializable(mUpdatedAt);
+	}
 
-        @Override
-        public Todo[] newArray(int size) {
-            return new Todo[size];
-        }
-    };
+	public static final Creator<Todo> CREATOR = new Creator<Todo>() {
+		@Override
+		public Todo createFromParcel(Parcel source) {
+			return new Todo(source);
+		}
+
+		@Override
+		public Todo[] newArray(int size) {
+			return new Todo[size];
+		}
+	};
 }

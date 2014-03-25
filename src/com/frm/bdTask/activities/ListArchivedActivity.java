@@ -6,13 +6,13 @@ package com.frm.bdTask.activities;
  * @version: 2014.03.24.
  */
 public class ListArchivedActivity extends ActivityBase {
-    @Override
-    public void invalidate() {
+	@Override
+	public void invalidate() {
 
-    }
+	}
 
-    @Override
-    public void invalidate(Object param) {
+	@Override
+	public void invalidate(Object param) {
 
-    }
+	}
 }
