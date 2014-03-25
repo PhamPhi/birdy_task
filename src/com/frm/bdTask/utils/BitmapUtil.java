@@ -182,6 +182,7 @@ public class BitmapUtil {
             return 1;
         }
     }
+
     public static void setBackgroundImage(Context context, View view, int resId){
         InputStream inStream = context.getResources().openRawResource(resId);
         BitmapDrawable  bitmapDrawable = new BitmapDrawable();
