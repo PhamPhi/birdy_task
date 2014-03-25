@@ -5,15 +5,11 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.frm.bdTask.MenuDrawerItem;
-import com.frm.bdTask.R;
 import com.frm.bdTask.controls.Action;
 import com.frm.bdTask.controls.ActivityControlBase;
 import com.frm.bdTask.controls.Properties;
-import com.frm.bdTask.models.DataModel;
 import com.frm.bdTask.models.Image;
 
 /**
@@ -48,10 +44,6 @@ public abstract class ActivityBase extends SherlockFragmentActivity {
     public Image getDefaultImage(String key){
         return null;
     }
-
-    protected void startActivityWithDelay(final Intent intent){
-        startActivity(intent);
-    }
     protected ActivityControlBase control = null;
 
     public abstract void invalidate();
@@ -72,38 +64,4 @@ public abstract class ActivityBase extends SherlockFragmentActivity {
 
         }
     };
-
-    /////////////////////////////// NAVIGATION ITEMS ///////////////////////////////////////////////////////////////
-    public class ListNoteMenuItem extends MenuDrawerItem {
-
-        protected ListNoteMenuItem(int inItemId, int inStringRes, int inIconRes) {
-            super(DataModel.LIST_NOTE_ACTIVITY, R.string.menu_drawer_item_list_notes, R.drawable.menu_drawer_note);
-        }
-
-        @Override
-        public boolean isVisible() {
-            return super.isVisible();
-        }
-
-        protected ListNoteMenuItem(int inStringRes, int inIconRes) {
-            super(inStringRes, inIconRes);
-        }
-
-        @Override
-        public Boolean isSelected() {
-            return ActivityBase.this instanceof ListNotesActivity;
-        }
-
-        @Override
-        public void onSelecteItem() {
-           if(!isSelected()){
-               mShouldFinished = true;
-
-               Intent intent= new Intent(ActivityBase.this, ListNotesActivity.class);
-               intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-               startActivityWithDelay(intent);
-           }
-        }
-    }
-
 }

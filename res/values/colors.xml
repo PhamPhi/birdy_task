@@ -14,6 +14,6 @@
     <color name="drawer_list_background">#ffeeeeee</color>
     <color name="drawer_list_background_pressed">#ff05c4cb</color>
     <color name="drawer_item_badger_background">#ffdd513d</color>
-    <color name="drawer_item_badger_color">#ff00cb92</color>
+    <color name="drawer_item_badger_color">#ffe7e4fb</color>
 
 </resources>

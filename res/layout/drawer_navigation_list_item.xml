@@ -4,7 +4,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/drawer_item_height"
                 android:background="@drawable/slider_menu_selector">
-    <ImageView android:id="@+id/menu_slider_item_icon"
+    <ImageView android:id="@+id/slider_item_icon"
                android:layout_width="@dimen/slider_menu_item_width"
                android:layout_height="wrap_content"
                android:layout_alignParentLeft="true"
