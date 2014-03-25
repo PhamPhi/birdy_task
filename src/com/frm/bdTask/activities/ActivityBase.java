@@ -17,51 +17,58 @@ import com.frm.bdTask.models.Image;
  * @since 3/19/14.
  */
 public abstract class ActivityBase extends SherlockFragmentActivity {
-    public static final String TAG = Properties.PREFIX + ActivityBase.class.getSimpleName();
+	public static final String TAG = Properties.PREFIX
+			+ ActivityBase.class.getSimpleName();
 
-    protected boolean mShouldFinished= false;
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
+	protected boolean mShouldFinished = false;
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
+	@Override
+	protected void onResume() {
+		super.onResume();
+	}
 
-    /**
-     * Method getTopActivity(). It's used to get the floating activity during while checking
-     * @return String Type.
-     */
-    protected String getTopActivity(){
-        ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        ComponentName topActivity = am.getRunningTasks(1).get(0).topActivity;
-        Log.d(TAG, "TopActivity: " + topActivity.getPackageName() + ", ClassName: " + topActivity.getClassName());
-        return topActivity.getClassName();
-    }
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+	}
 
-    public Image getDefaultImage(String key){
-        return null;
-    }
-    protected ActivityControlBase control = null;
+	/**
+	 * Method getTopActivity(). It's used to get the floating activity during
+	 * while checking
+	 * 
+	 * @return String Type.
+	 */
+	protected String getTopActivity() {
+		ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+		ComponentName topActivity = am.getRunningTasks(1).get(0).topActivity;
+		Log.d(TAG, "TopActivity: " + topActivity.getPackageName()
+				+ ", ClassName: " + topActivity.getClassName());
+		return topActivity.getClassName();
+	}
 
-    public abstract void invalidate();
-    public abstract void invalidate(Object param);
+	public Image getDefaultImage(String key) {
+		return null;
+	}
 
-    protected BroadcastReceiver mDrawerReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if(intent == null || intent.getAction() == null){
-                return;
-            }
-            if(intent.getAction().equals(Action.ACTION_REQUEST_OWNER)){
-                // Doing request owner.
-            }
-            if(intent.getAction().equals(Action.ACTION_REQUEST_DATA)){
-                // Doing request data.
-            }
+	protected ActivityControlBase control = null;
 
-        }
-    };
+	public abstract void invalidate();
+
+	public abstract void invalidate(Object param);
+
+	protected BroadcastReceiver mDrawerReceiver = new BroadcastReceiver() {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			if (intent == null || intent.getAction() == null) {
+				return;
+			}
+			if (intent.getAction().equals(Action.ACTION_REQUEST_OWNER)) {
+				// Doing request owner.
+			}
+			if (intent.getAction().equals(Action.ACTION_REQUEST_DATA)) {
+				// Doing request data.
+			}
+
+		}
+	};
 }
